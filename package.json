@@ -1,6 +1,6 @@
 {
   "name": "@satanfire/dsh-mcp-panel",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP panel for the DSH Web settings: list servers and tools, and estimate each tool schema's token footprint.",
   "type": "module",
   "license": "MIT",

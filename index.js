@@ -5,7 +5,9 @@
  */
 
 const MCP_CLIENT_NAME = '@deepseek-ai/dsh-mcp-client';
-const LAZY_TOOLS_NAMES = ['mcp-lazy-tools', '@local/mcp-lazy-tools', '@satanfire/mcp-lazy-tools'];
+const LAZY_TOOLS_NAMES = ['mcp-lazy-tools', '@satanfire/dsh-mcp-lazy-tools', '@local/mcp-lazy-tools'];
+/** Any package whose name ends with this is the same policy under another scope. */
+const LAZY_TOOLS_SUFFIX = '/mcp-lazy-tools';
 const LIST_PATH = '/api/dsh-mcp-panel/list';
 const TOOL_PATH = '/api/dsh-mcp-panel/tool';
 const PUBLIC_PREFIX = 'mcp__';
@@ -543,7 +545,7 @@ function estimateToolTokens(tool) {
 function readLazyPolicy(ctx, lazyNames) {
   for (const entry of readEntries(ctx)) {
     const name = entry?.options?.name;
-    if (typeof name !== 'string' || !lazyNames.has(name)) continue;
+    if (typeof name !== 'string' || !(lazyNames.has(name) || name.endsWith(LAZY_TOOLS_SUFFIX))) continue;
     if (entry.options.group) continue;
     if (entry.disabled === true) continue;
     if (entry?.fiber?.state !== 2) continue;

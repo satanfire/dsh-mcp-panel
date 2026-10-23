@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1 — 2026-10-23
+
+- 识别通用命名的懒加载插件：`@satanfire/dsh-mcp-lazy-tools`，以及任何以 `/mcp-lazy-tools` 结尾的包名。
+
 ## 1.0.0 — 2026-10-23
 
 首个公开发布版本。
