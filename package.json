@@ -1,0 +1,68 @@
+{
+  "name": "@satanfire/dsh-mcp-panel",
+  "version": "1.0.0",
+  "description": "MCP panel for the DSH Web settings: list servers and tools, and estimate each tool schema's token footprint.",
+  "type": "module",
+  "license": "MIT",
+  "author": "satanfire",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/satanfire/dsh-mcp-panel.git"
+  },
+  "homepage": "https://github.com/satanfire/dsh-mcp-panel#readme",
+  "bugs": {
+    "url": "https://github.com/satanfire/dsh-mcp-panel/issues"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "cordis",
+    "plugin",
+    "mcp",
+    "settings"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/en.json": "./locale/en.json",
+    "./locale/zh.json": "./locale/zh.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale",
+    "icon.svg",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "check": "node --check index.js && node --check client.js"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh": ">=0.2.0-rc.2"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh": {
+      "optional": true
+    }
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  }
+}

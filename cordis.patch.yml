@@ -1,0 +1,3 @@
+- insert:
+    - id: mcp-panel
+      name: '@satanfire/dsh-mcp-panel'
